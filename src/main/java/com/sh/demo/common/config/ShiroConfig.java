@@ -40,6 +40,9 @@ public class ShiroConfig {
     @Value("${spring.redis.password}")
     private String password;
 
+    @Value("${session.timeout}")
+    private int sessionTimeout;
+
     /**
      * 开启Shiro-aop注解支持
      * @Attention 使用代理方式所以需要开启代码支持
@@ -175,7 +178,8 @@ public class ShiroConfig {
         redisSessionDAO.setRedisManager(redisManager());
         redisSessionDAO.setSessionIdGenerator(sessionIdGenerator());
         redisSessionDAO.setKeyPrefix(SESSION_KEY);
-        redisSessionDAO.setExpire(timeout);
+        //设置过期时间
+        redisSessionDAO.setExpire(sessionTimeout);
         return redisSessionDAO;
     }
 
