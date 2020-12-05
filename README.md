@@ -40,7 +40,7 @@
 然后访问http:localhost:8764/menu/getUserInfoList
 但是得带上 Authorization:jssesionid去访问
 然后就能拿到数据了
-当第一次访问后 存在redis中的cache就会当前登录用户相对应的权限
+当第一次访问后 存在redis中的cache就会保存当前登录用户相对应的权限
 
 #### 当用户访问某个地址时会有相对应的权限拦截 会去cache找是否有相对应的权限 如果没有抛出异常
 
